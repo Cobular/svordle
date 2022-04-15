@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { Status } from '../utils/types';
-	import { current_word } from '../utils/wordle_logic';
-	import { status } from '../utils/helpers';
+	import { current_word } from '$lib/wordle_logic';
+	import { status } from "$lib/helpers";
 
 	export let letter: string | undefined = undefined;
 	export let index: number;

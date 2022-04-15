@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Icon from '../components/icon.svelte';
 	import Row from '../components/row.svelte';
-	import { game_status, current_word } from '../utils/wordle_logic';
-	import svelte from '$lib/svelte.svg';
-	import { updateStoreFromKey } from '../utils/helpers';
+	import { game_status } from '$lib/wordle_logic';
+	import { updateStoreFromKey } from '$lib/helpers';
+	import svelte from '$static/svelte.svg';
 
 	function handleKeydown(event: KeyboardEvent) {
 		$game_status = updateStoreFromKey(event, $game_status);

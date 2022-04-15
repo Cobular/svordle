@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RowDatum } from '../utils/types';
+	import type { RowDatum } from '$lib/types';
 	import Cell from './cell.svelte';
 
 	export let cell_contents: RowDatum;
