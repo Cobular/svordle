@@ -9,7 +9,8 @@ export interface CurrentWord {
   letters: string[];
 }
 
-export interface RowData {
+export interface GameStatus {
+  current_row: 0 | 1 | 2 | 3 | 4 | 5;
   row0: RowDatum;
   row1: RowDatum;
   row2: RowDatum;

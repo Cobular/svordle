@@ -1,5 +1,5 @@
 import { writable, type Writable } from 'svelte/store';
-import type { CurrentWord, RowData, RowDatum } from './types';
+import type { CurrentWord, GameStatus, RowDatum } from './types';
 import { words_set } from './words';
 
 // get random item from a Set
@@ -18,7 +18,7 @@ function currentWordFactory(word: string): CurrentWord {
 	};
 }
 
-export function gameStateFactory(): RowData {
+export function gameStateFactory(): GameStatus {
   const submitted = false;
 	const row0: RowDatum = {submitted};
 	const row1: RowDatum = {submitted};
@@ -27,6 +27,7 @@ export function gameStateFactory(): RowData {
 	const row4: RowDatum = {submitted};
 	const row5: RowDatum = {submitted};
 	return {
+		current_row: 0,
 		row0,
 		row1,
 		row2,
@@ -36,9 +37,9 @@ export function gameStateFactory(): RowData {
 	};
 }
 
-// const _current_word: CurrentWord = currentWordFactory(getRandomItem(words_set));
-const _current_word: CurrentWord = currentWordFactory("AAAAA");
+const _current_word: CurrentWord = currentWordFactory(getRandomItem(words_set).toUpperCase());
+// const _current_word: CurrentWord = currentWordFactory("AAAAA");
 
 export const current_word: Writable<CurrentWord> = writable(_current_word);
 
-export const game_status: Writable<RowData> = writable(gameStateFactory());
+export const game_status: Writable<GameStatus> = writable(gameStateFactory());

@@ -21,10 +21,5 @@
     align-items: center;
 
     height: fit-content;
-
-    & > * {
-      width: 40px;
-      height: 40px;
-    }
   }
 </style>

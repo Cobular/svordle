@@ -2,27 +2,30 @@
 	import { CellStatus } from '../utils/types';
 	import { current_word } from '../utils/wordle_logic';
 
-	export let letter: string = '';
+	export let letter: string | undefined = undefined;
 	export let index: number;
 	export let submitted: boolean;
 
-	let status: CellStatus = CellStatus.NONE;
+	function status(submitted: boolean): 'none' | 'correct' | 'wrong_position' | 'incorrect' {
+		let _status: 'none' | 'correct' | 'wrong_position' | 'incorrect' = 'none';
 
-	current_word.subscribe((current_word) => {
 		if (submitted) {
-			if (current_word.letters.includes(letter)) status = CellStatus.WRONG_POSITION;
-			if (current_word.letters[index] === letter) status = CellStatus.CORRECT;
+		if ($current_word.letters.includes(letter)) _status = 'wrong_position';
+		else _status = 'incorrect';
+		if ($current_word.letters[index] === letter) _status = 'correct';
+
 		}
-	});
+
+		return _status;
+	}
 </script>
 
 <div
-	class="cell_parent"
-	class:none={status === CellStatus.NONE}
-	class:correct={status === CellStatus.CORRECT}
-	class:wrong_position={status === CellStatus.WRONG_POSITION}
+	class={`cell_parent ${status(submitted)}`}
 >
-	<h3>{letter}</h3>
+	{#if letter !== undefined}
+		<h3>{letter}</h3>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -49,10 +52,14 @@
 			background-color: darkgrey;
 		}
 		&.correct {
-			background-color: lightgreen;
+			background-color: green;
 		}
 		&.wrong_position {
-			background-color: lightyellow;
+			background-color: yellow;
+		}
+		
+		&.incorrect {
+			background-color: red;
 		}
 	}
 </style>
