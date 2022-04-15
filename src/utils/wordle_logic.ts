@@ -19,13 +19,13 @@ function currentWordFactory(word: string): CurrentWord {
 }
 
 export function gameStateFactory(): GameStatus {
-  const submitted = false;
-	const row0: RowDatum = {submitted};
-	const row1: RowDatum = {submitted};
-	const row2: RowDatum = {submitted};
-	const row3: RowDatum = {submitted};
-	const row4: RowDatum = {submitted};
-	const row5: RowDatum = {submitted};
+	const submitted = false;
+	const row0: RowDatum = { submitted };
+	const row1: RowDatum = { submitted };
+	const row2: RowDatum = { submitted };
+	const row3: RowDatum = { submitted };
+	const row4: RowDatum = { submitted };
+	const row5: RowDatum = { submitted };
 	return {
 		current_row: 0,
 		row0,
