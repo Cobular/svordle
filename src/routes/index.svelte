@@ -3,7 +3,7 @@
 	import Row from '../components/row.svelte';
 	import { game_status } from '$lib/wordle_logic';
 	import { updateStoreFromKey } from '$lib/helpers';
-	import svelte from '$static/svelte.svg';
+	import svelte from '$lib/svelte.svg';
 
 	function handleKeydown(event: KeyboardEvent) {
 		$game_status = updateStoreFromKey(event, $game_status);
