@@ -1,3 +1,4 @@
+<!-- Really small brain icon component -->
 <script lang="ts">
 	export let image_path: string;
 	export let image_alt: string;

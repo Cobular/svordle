@@ -5,22 +5,15 @@
 	import { updateStoreFromKey } from '$lib/helpers';
 	import svelte from '$lib/svelte.svg';
 
-	function handleKeydown(event: KeyboardEvent) {
-		$game_status = updateStoreFromKey(event, $game_status);
-	}
+	// Keydown Handler
 </script>
 
 <div id="index">
 	<h1><Icon image_path={svelte} image_alt="Svelte Logo" />Svordle</h1>
-	<Row cell_contents={$game_status.row0} />
-	<Row cell_contents={$game_status.row1} />
-	<Row cell_contents={$game_status.row2} />
-	<Row cell_contents={$game_status.row3} />
-	<Row cell_contents={$game_status.row4} />
-	<Row cell_contents={$game_status.row5} />
+	<!-- Row components!! -->
 </div>
 
-<svelte:window on:keydown={handleKeydown} />
+<!-- Add keydown event handler -->
 
 <svelte:head>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />

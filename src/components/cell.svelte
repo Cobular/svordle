@@ -2,15 +2,12 @@
 	import { current_word } from '$lib/wordle_logic';
 	import { status } from "$lib/helpers";
 
-	export let letter: string | undefined = undefined;
-	export let index: number;
-	export let submitted: boolean;
+	// Setup props
 </script>
 
+<!-- Some conditional class stuff! -->
 <div class={`cell_parent ${status(submitted, $current_word, letter, index)}`}>
-	{#if letter !== undefined}
-		<h3>{letter}</h3>
-	{/if}
+	<!-- Put the letter in the middle -->
 </div>
 
 <style lang="scss">
